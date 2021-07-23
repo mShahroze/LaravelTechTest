@@ -18,8 +18,12 @@ use App\Http\Controllers\PictureController;
 
 Route::get('/', [PictureController::class, 'index']);
 
+Route::get('pictures/create', 'PictureController@create');
+
 Route::resources([
     'pictures' => PictureController::class,
 ]);
 
 Route::post('/pictures/{picture}/upvote', [PictureController::class, 'upvote'])->name('pictures.upvote');
+
+Route::post('picture', 'PictureController@store');

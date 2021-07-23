@@ -39,6 +39,8 @@ class PictureController extends Controller
     public function store(Request $request)
     {
         // See PictureControllerTest to see what this should do
+        var_dump(request('name'));
+        var_dump(request('image'));
     }
 
     /**
@@ -49,6 +51,5 @@ class PictureController extends Controller
      */
     public function upvote(Request $request, Picture $picture)
     {
-        
     }
 }
