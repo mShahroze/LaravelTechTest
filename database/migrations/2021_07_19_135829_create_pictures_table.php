@@ -17,7 +17,7 @@ class CreatePicturesTable extends Migration
             $table->id();
             $table->string('name');
             $table->string('image');
-            $table->string('file_path');
+            // $table->string('file_path');
             $table->integer('votes')->default(0);
             $table->timestamps();
         });

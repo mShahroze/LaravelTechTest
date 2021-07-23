@@ -39,8 +39,12 @@ class PictureController extends Controller
     public function store(Request $request)
     {
         // See PictureControllerTest to see what this should do
-        var_dump(request('name'));
-        var_dump(request('image'));
+
+        $picture = new Picture;
+
+        $picture->name = request('name');
+        $picture->image = request()->file('image')->store('public/images');
+        $picture->save();
     }
 
     /**
