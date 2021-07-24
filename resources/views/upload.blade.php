@@ -27,14 +27,14 @@
                             <div class="grid grid-cols-6 gap-6">
                                 <div class="col-span-6 sm:col-span-3">
                                     <label for="nameId" class="block text-sm font-medium text-gray-700">Name</label>
-                                    <input type="text" name="name" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" id="nameid" placeholder="Dog Name" style="margin-left: 10px;">
+                                    <input type="text" name="name" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" id="nameid" placeholder="Dog Name">
                                 </div>
 
                                 <div class=" col-span-6 sm:col-span-3">
                                     <label for="imageid" class="block text-sm font-medium text-gray-700">Image</label>
                                     <div class="col-sm-9">
-                                        <input name="image" type="file" id="imageid" class="custom-file-input mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" style="margin-left: 10px;">
-                                        <span style="margin-left: 15px; width: 480px;" class="custom-file-control"></span>
+                                        <input name="image" type="file" id="imageid" class="custom-file-input mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
+                                        <span class="custom-file-control"></span>
                                     </div>
                                 </div>
                             </div>

@@ -40,14 +40,19 @@ class PictureController extends Controller
     {
         // See PictureControllerTest to see what this should do
 
+        // Instantiate Picture object and save to variable picture 
         $picture = new Picture;
-
+        // Send request to content in name input and store it in name field of picture object
         $picture->name = request('name');
-
+        // Request image file hashname (name) and save it as file_name 
         $file_name = $request->file('image')->hashName();
+        // Store file_name into column file_path within picture model table
         $picture->file_path = $file_name;
+        // Variable that is assigned in the function’s call (image) sends request for file to be stored in Storage/App/Public 
         request()->file('image')->storeAs('/public', $file_name);
+        // Store request - saving to variable picture
         $picture->save();
+        // Redirect to homepage once store completed 
         return redirect()->to('/');
     }
 
@@ -59,6 +64,11 @@ class PictureController extends Controller
      */
     public function upvote(Request $request, Picture $picture)
     {
-        Post::find(1)->increment('votes');
+        // Increment function on column votes within Picture model
+        $picture->increment('votes');
+        // Save to associated picture with Id
+        $picture->save();
+        // Redirect to homepage once update completed 
+        return redirect()->to('/');
     }
 }

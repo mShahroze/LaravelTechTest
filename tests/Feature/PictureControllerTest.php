@@ -62,8 +62,21 @@ class PictureControllerTest extends TestCase
         $this->assertFileExists(storage_path('app/public/' . $file->hashName()));
     }
 
-    // public function test_upvote_a_dog()
-    // {
-
-    // }
+    public function test_upvote_a_dog()
+    {
+        // create test picture object and saving to variable 
+        $picture = Picture::create([
+            'name' => 'test name',
+            'file_path' => 'dog.jpg',
+        ]);
+        //setting vote count to 0 and storing result
+        $picture->votes = 0;
+        $picture->save();
+        //sending post request to uri with picture id
+        $this->post('/pictures/' . $picture->id . '/upvote');
+        //assertion to check is picture database has changes votes column with relative id to 1
+        $this->assertDatabaseHas('pictures', [
+            'votes' => 1
+        ]);
+    }
 }
