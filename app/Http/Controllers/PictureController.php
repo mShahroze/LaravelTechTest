@@ -43,8 +43,12 @@ class PictureController extends Controller
         $picture = new Picture;
 
         $picture->name = request('name');
-        $picture->image = request()->file('image')->store('public/images');
+
+        $file_name = $request->file('image')->hashName();
+        $picture->file_path = $file_name;
+        request()->file('image')->storeAs('/public', $file_name);
         $picture->save();
+        return redirect()->to('/');
     }
 
     /**
@@ -55,5 +59,6 @@ class PictureController extends Controller
      */
     public function upvote(Request $request, Picture $picture)
     {
+        Post::find(1)->increment('votes');
     }
 }
